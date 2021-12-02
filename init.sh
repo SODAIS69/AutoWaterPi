@@ -4,8 +4,10 @@
 # History:
 # 2021/12/2	
 
-#check interval
+#Check interval
 minute=5
+#Capture interval
+cminte=1
 
 #取得現在的路徑
 #https://www.ltsplus.com/linux/shell-script-get-script-location
@@ -25,8 +27,8 @@ get_script_dir () {
 BASEDIR=$(get_script_dir)
 
 mkdir -p $BASEDIR/Captured #建立Captured資料夾
-(crontab -u $USER -l 2>/dev/null; echo "*/15 * * * * $BASEDIR/capture.py") | crontab -u $USER - #每15分拍一次照
-(crontab -u $USER -l 2>/dev/null; echo "*/$minute * * * * $BASEDIR/check.py") | crontab -u $USER - #每X分檢查水位跟土壤濕度
+(crontab -u root -l 2>/dev/null; echo "*/$cminte * * * * python3 $BASEDIR/capture.py") | crontab -u root - #每15分拍一次照
+(crontab -u root -l 2>/dev/null; echo "*/$minute * * * * python3 $BASEDIR/check.py") | crontab -u root - #每X分檢查水位跟土壤濕度
 apt-get install apache2 -y
 mkdir /var/www/html/AutoWaterPi
 ln -s $BASEDIR/Captured /var/www/html/AutoWaterPi

@@ -21,6 +21,6 @@ get_script_dir () {
 
 BASEDIR=$(get_script_dir)
 
-crontab -u $USER -l | grep -v $BASEDIR/capture.py  | crontab -u $USER -
-crontab -u $USER -l | grep -v $BASEDIR/check.py  | crontab -u $USER -
+crontab -u root -l | grep -v $BASEDIR/capture.py  | crontab -u root -
+crontab -u root -l | grep -v $BASEDIR/check.py  | crontab -u root -
 #https://askubuntu.com/questions/408611/how-to-remove-or-delete-single-cron-job-using-linux-command
