@@ -32,4 +32,7 @@ Soil moisture detector: defined in `check.py`
 ### Naming of pictures
 Defined in `capture.py`, the `timestamp` variable.
 
-# Removal
+# Removal  
+The remove.sh can help you remove the schedules set while installation.
+But apache2 won't be remove while uninstallation.
+Run it as root.
