@@ -1,6 +1,8 @@
 import time as time
-def watering():
-    GPIO.setup(38888, GPIO.OUT) #water pump
-    GPIO.output(38888, 1)
-    time.sleep(2)
-    GPIO.output(38888, 0)
+import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(16, GPIO.OUT) #water pump
+GPIO.output(16, 0)
+time.sleep(0.6)
+GPIO.output(16, 1)

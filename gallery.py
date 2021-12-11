@@ -5,7 +5,7 @@ def GenerateGallery():
     if os.path.exists(f'{basepath}/index.html'):
         pictures.remove('index.html')
     picturesSort=sorted(pictures,reverse=True)
-    htmlhead="<html>\r\n<head>\r\n<meta http-equiv=\"refresh\" content=\"20\" ><meta charset=\"utf-8\"><title>My dear plant</title>\r\n<style>\r\nbody {background-color: #dae0ff;}div.gallery {\r\n background-color:white; margin: 5px;\r\nborder: 1px solid #ccc;\r\nfloat: left;\r\nwidth: 400px;\r\n}\r\n\r\ndiv.gallery:hover {\r\nborder: 1px solid #777;\r\n}\r\n\r\ndiv.gallery img {\r\nwidth: 100%;\r\nheight: auto;\r\n}\r\n\r\ndiv.desc {\r\npadding: 15px;\r\ntext-align: center;\r\n}\r\n</style>\r\n</head>\r\n<body>\r\n<h1>~我ㄉ盆栽~</h1>"
+    htmlhead="<html>\r\n<head>\r\n<meta http-equiv=\"refresh\" content=\"1\" ><meta charset=\"utf-8\"><title>My dear plant</title>\r\n<style>\r\nbody {background-color: #dae0ff;}div.gallery {\r\n background-color:white; margin: 5px;\r\nborder: 1px solid #ccc;\r\nfloat: left;\r\nwidth: 400px;\r\n}\r\n\r\ndiv.gallery:hover {\r\nborder: 1px solid #777;\r\n}\r\n\r\ndiv.gallery img {\r\nwidth: 100%;\r\nheight: auto;\r\n}\r\n\r\ndiv.desc {\r\npadding: 15px;\r\nfont-size: 28;\r\ntext-align: center;\r\n}\r\n</style>\r\n</head>\r\n<body>\r\n<h1>~我ㄉ盆栽~</h1>"
     htmlbottom="</body>\r\n\r\n</html>"
 
     for i in picturesSort:
