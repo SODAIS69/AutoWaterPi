@@ -27,7 +27,7 @@ water pump: defined in `water.py`
 Water tray level detector: defined in `check.py`   
 Soil moisture detector: defined in `check.py`   
 
-### Editing the value of water each time
+### Editing the pouring value of water each time
 
 ### Naming of pictures
 Defined in `capture.py`, the `timestamp` variable.
