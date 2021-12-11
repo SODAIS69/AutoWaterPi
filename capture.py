@@ -4,6 +4,8 @@ import os
 import gallery
 
 camera = PiCamera()
+camera.iso=800
+camera.shutter_speed=66666
 nowtime=int(time.time())
 camera.resolution = (1640, 1232)
 timestamp=time.strftime("%Y-%m-%d-%H:%M:%S",time.localtime(nowtime) )

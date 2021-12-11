@@ -18,14 +18,23 @@ def analogInput(channel):
   data = ((adc[1]&3) << 8) + adc[2]
   return data
 
-def GetMoisture():
+def MoistureDetect():
   output = analogInput(0) # Reading from CH0
-  output = interp(output, [0, 1023], [100, 0])
+  output = interp(output, [0, 1023], [0, 100])
   output = int(output)
+  return output,analogInput(0)
+
+def GetMoisture():
+  Moisture=MoistureDetect()
+  
+
+  return Moisture[0]
+def GetMoistureAndSave():
+  Moisture=MoistureDetect()
   nowtime=int(time.time())
-  timestamp=time.strftime("%Y %m %d %H %M %S",time.localtime(nowtime) )
+  timestamp=time.strftime("%Y-%m-%d %H:%M",time.localtime(nowtime) )
   f=open(f'{os.path.dirname(os.path.abspath(__file__))}/moistureDate',"a")
-  f.write(f"Moisture {output} raw {analogInput(0)} time {timestamp}\n")
+  f.write(f"Moisture,{Moisture[0]},raw,{Moisture[1]},time,{timestamp}\n")
   f.close()
-  return output
+  return Moisture[0]
   
