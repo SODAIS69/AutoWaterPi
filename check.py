@@ -6,22 +6,25 @@ from moisture import GetMoistureAndSave
 from genChart import GenerateMoistureChart 
 from waterlevel import GetWaterLevel
 from pump import PumpWater
+from logger import log
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(32, GPIO.IN)         #Water read
 GPIO.setup(3, GPIO.IN)         #Moist read
 WaterLevel=GetWaterLevel()
 WaterThreshold=510
-MoistThreshold=70
+MoistThreshold=40
 Moisture=GetMoistureAndSave()
 GenerateMoistureChart()
 
-if Moisture<MoistThreshold:
+if Moisture<MoistThreshold&WaterLevel<600:
+    log("waterd")
     water()
 
 time.sleep(20)
 if WaterLevel>WaterThreshold:
-  PumpWater()
+    log("pumped")
+    PumpWater()
  #   remind user
 #if Moisture<threshold:
 #  water()

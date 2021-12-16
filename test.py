@@ -1,5 +1,6 @@
 from genChart import GenerateMoistureChart 
 from gallery import GenerateGallery 
-
-GenerateMoistureChart()
-GenerateGallery()
+from logger import log
+#GenerateMoistureChart()
+#GenerateGallery()
+log("test")
