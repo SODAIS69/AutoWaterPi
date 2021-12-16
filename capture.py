@@ -4,7 +4,7 @@ import os
 import gallery
 
 camera = PiCamera()
-camera.iso=800
+camera.iso=100
 camera.shutter_speed=66666
 nowtime=int(time.time())
 camera.resolution = (1640, 1232)

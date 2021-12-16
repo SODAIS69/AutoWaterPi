@@ -27,13 +27,21 @@ get_script_dir () {
 BASEDIR=$(get_script_dir)
 
 mkdir -p $BASEDIR/Captured #建立Captured資料夾
+crontab -u root -l | grep -v $BASEDIR/capture.py  | crontab -u root - #移除舊有
+crontab -u root -l | grep -v $BASEDIR/check.py  | crontab -u root -
 (crontab -u root -l 2>/dev/null; echo "*/$cminte * * * * python3 $BASEDIR/capture.py") | crontab -u root - #每15分拍一次照
 (crontab -u root -l 2>/dev/null; echo "*/$minute * * * * python3 $BASEDIR/check.py") | crontab -u root - #每X分檢查水位跟土壤濕度
-apt-get install apache2 -y
+apt-get install apache2 python3-pandas python3-matplotlib -y
 mkdir /var/www/html/AutoWaterPi
 ln -s $BASEDIR/Captured /var/www/html/AutoWaterPi
+
+mkdir -p $BASEDIR/temp
+raspi-config nonint do_spi 0 #enable spi
+
 ip=$(hostname -I)
 ip=${ip// /} #去除空白
 RED='\033[0;91m'
 NC='\033[0m' # No Color
+
 echo -e "${RED}You can now check your captured pictures at \"http://${ip}/AutoWaterPi/Captured\"${NC}"
+echo -e "${RED}Reboot to enable spi!${NC}"
