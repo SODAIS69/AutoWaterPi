@@ -7,7 +7,7 @@ from time import sleep  # To add delay
 # Start SPI connection
 spi = spidev.SpiDev() # Created an object
 spi.open(0,0)
-
+channel=1
 
 # Read MCP3008 data
 def analogInput(channel):
@@ -17,7 +17,7 @@ def analogInput(channel):
   return data
 
 def GetWaterLevel():
-  waterlevel=analogInput(1)
+  waterlevel=analogInput(channel)
   return waterlevel
 
 

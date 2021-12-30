@@ -12,10 +12,17 @@ def GenerateGallery():
     htmlhead+=f"<h1>୧(๑•̀ᴗ•́๑)୨～～我ㄉ盆栽～～ 🌡️ 濕度: {GetMoisture()}%</h1><marquee scrollamount=\"10\">{message}</marquee>"
     htmlbottom="</body>\r\n\r\n</html>"
     picturesSort.remove("moisture.jpg")
+    picturesSort.remove("archive.jpg")
 
     htmlhead+=f"<div class=\"panel\" >\r\n<a target=\"_blank\" href=\"moisture.jpg\">\r\n<img src=\"moisture.jpg\" alt=\"Cinque Terre\" width=\"100%\">\r\n</a>\r\n<div class=\"desc\">🌡️濕度</div>\r\n</div>"
     for i in picturesSort:
-        htmlhead+=f"<div class=\"gallery\">\r\n<a target=\"_blank\" href=\"{i}\">\r\n<img src=\"{i}\" alt=\"Cinque Terre\" width=\"800\">\r\n</a>\r\n<div class=\"desc\">🌻:&nbsp;{i}</div>\r\n</div>"
+        if i=="archive":
+            name="archive"
+            path="archive.jpg"
+        else:
+            name=i
+            path=i
+        htmlhead+=f"<div class=\"gallery\">\r\n<a target=\"_blank\" href=\"{path}\">\r\n<img src=\"{path}\" alt=\"Cinque Terre\" width=\"800\">\r\n</a>\r\n<div class=\"desc\">🌻:&nbsp;{name}</div>\r\n</div>"
     htmlhead+=htmlbottom
     #print(f"{basepath}/index.html")
     f=open(f'{basepath}/index.html',"w")

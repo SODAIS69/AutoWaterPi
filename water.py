@@ -3,9 +3,10 @@ import RPi.GPIO as GPIO
 
 
 def water():
+    pin=16
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(16, GPIO.OUT) #water pump
-    GPIO.output(16, 0)
-    time.sleep(0.6)
-    GPIO.output(16, 1)
+    GPIO.setup(pin, GPIO.OUT) #water pump
+    GPIO.output(pin, 0)
+    time.sleep(1.7)
+    GPIO.output(pin, 1)

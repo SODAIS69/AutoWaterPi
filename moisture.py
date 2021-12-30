@@ -5,6 +5,7 @@ from numpy import interp  # To scale values
 import time
 import os
 
+channel=0
 
 # Start SPI connection
 spi = spidev.SpiDev() # Created an object
@@ -23,7 +24,7 @@ def MoistureDetect():
   output = analogInput(0) # Reading from CH0
   output = interp(output, [0, 1023], [100, 0])
   output = int(output)
-  return output,analogInput(0)
+  return output,analogInput(channel)
 
 def GetMoisture():
   Moisture=MoistureDetect()

@@ -15,7 +15,7 @@ Variable `cminute` determine the interval of picture captures. Default is `15`
 
 Run `init.sh` as root, it will put `check.py` and `capture.py` into crontab.  
 By this, it can check Water level on tray and soil moisture periodically.  
-Also, it will install apache2 automatically.  
+Also, it will install apache2, python3-pandas, python3-matplotlib automatically.  
 You can watch the pictures captured at `Your IP/AutoWaterPi/Captured` after installation.  
 
 
@@ -23,11 +23,13 @@ You can watch the pictures captured at `Your IP/AutoWaterPi/Captured` after inst
 You can still edit the interval of time after installation by command `crontab -u root -e`
 
 ### Pin of Miscellaneous
-water pump: defined in `water.py`  
-Water tray level detector: defined in `check.py`   
-Soil moisture detector: defined in `check.py`   
+Pour pump: Defined in `water.py`, as variable `pin`.  
+Tray pump: Defined in `pump.py`, as variable `pin`.  
+Water tray level detector: Defined in `waterlevel.py`, as variable `channel`.  
+Soil moisture detector: defined in `waterlevel.py`, as variable `channel`.  
 
 ### Editing the pouring value of water each time
+In `water.py`, edit the time of sleep. Effects the time of pump's activation in seconds.
 
 ### Naming of pictures
 Defined in `capture.py`, the `timestamp` variable.

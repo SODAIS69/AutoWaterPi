@@ -24,13 +24,15 @@ def GenerateMoistureChart():
         time.append(strarray[5])
         
     # print(len(moisture)) #only shows data for five days
+    lens=len(moisture)-1440
+
     if (len(moisture)>1440):
-        del moisture[:1440]
-        del raw[:1440]
-        del time[:1440]
-    #    print(len(moisture))
-    #    print(len(raw))
-    #    print(time)
+        del moisture[:lens]
+        del raw[:lens]
+        del time[:lens]
+        print(len(moisture))
+        print(len(raw))
+        print(time)
 
     #print(moisture)
 

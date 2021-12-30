@@ -13,11 +13,11 @@ GPIO.setup(32, GPIO.IN)         #Water read
 GPIO.setup(3, GPIO.IN)         #Moist read
 WaterLevel=GetWaterLevel()
 WaterThreshold=510
-MoistThreshold=40
+MoistThreshold=50
 Moisture=GetMoistureAndSave()
 GenerateMoistureChart()
-
-if Moisture<MoistThreshold&WaterLevel<600:
+log(f"waterLV:{WaterLevel}")
+if Moisture<MoistThreshold and WaterLevel<600:
     log("waterd")
     water()
 
@@ -25,6 +25,7 @@ time.sleep(20)
 if WaterLevel>WaterThreshold:
     log("pumped")
     PumpWater()
+
  #   remind user
 #if Moisture<threshold:
 #  water()

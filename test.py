@@ -1,6 +1,10 @@
 from genChart import GenerateMoistureChart 
 from gallery import GenerateGallery 
 from logger import log
-#GenerateMoistureChart()
-#GenerateGallery()
+from water import water
+from pump import PumpWater
+GenerateMoistureChart()
+GenerateGallery()
+# water()
+# PumpWater()
 log("test")
