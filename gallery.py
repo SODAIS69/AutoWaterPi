@@ -16,13 +16,12 @@ def GenerateGallery():
 
     htmlhead+=f"<div class=\"panel\" >\r\n<a target=\"_blank\" href=\"moisture.jpg\">\r\n<img src=\"moisture.jpg\" alt=\"Cinque Terre\" width=\"100%\">\r\n</a>\r\n<div class=\"desc\">🌡️濕度</div>\r\n</div>"
     for i in picturesSort:
+        name=i
+        path=i
         if i=="archive":
             name="archive"
             path="archive.jpg"
-        else:
-            name=i
-            path=i
-        htmlhead+=f"<div class=\"gallery\">\r\n<a target=\"_blank\" href=\"{path}\">\r\n<img src=\"{path}\" alt=\"Cinque Terre\" width=\"800\">\r\n</a>\r\n<div class=\"desc\">🌻:&nbsp;{name}</div>\r\n</div>"
+        htmlhead+=f"<div class=\"gallery\">\r\n<a target=\"_blank\" href=\"{name}\">\r\n<img src=\"{path}\" alt=\"Cinque Terre\" width=\"800\">\r\n</a>\r\n<div class=\"desc\">🌻:&nbsp;{name}</div>\r\n</div>"
     htmlhead+=htmlbottom
     #print(f"{basepath}/index.html")
     f=open(f'{basepath}/index.html',"w")

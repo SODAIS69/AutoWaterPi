@@ -19,7 +19,7 @@ GenerateMoistureChart()
 log(f"waterLV:{WaterLevel}")
 if Moisture<MoistThreshold and WaterLevel<600:
     log("waterd")
-    water()
+    # water()
 
 time.sleep(20)
 if WaterLevel>WaterThreshold:

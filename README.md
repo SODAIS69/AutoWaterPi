@@ -10,7 +10,9 @@ In `init.sh`.
 Variable `minute` determine the interval of water tray level and moisture check. Default is `5`  
 Variable `cminute` determine the interval of picture captures. Default is `15`  
 
-![circuit](./circuit.png)
+![circuit](./circuit.png)  
+If relay module needs power supply, plug to 5V power pin.
+
 # Installation    
 
 Run `init.sh` as root, it will put `check.py` and `capture.py` into crontab.  

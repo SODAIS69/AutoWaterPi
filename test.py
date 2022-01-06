@@ -3,8 +3,8 @@ from gallery import GenerateGallery
 from logger import log
 from water import water
 from pump import PumpWater
-GenerateMoistureChart()
+# GenerateMoistureChart()
 GenerateGallery()
 # water()
-# PumpWater()
+PumpWater()
 log("test")
