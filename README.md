@@ -37,6 +37,6 @@ In `water.py`, edit the time of sleep. Effects the time of pump's activation in 
 Defined in `capture.py`, the `timestamp` variable.
 
 # Removal  
-The remove.sh can help you remove the schedules set while installation.
+The remove.sh can help you removing the schedules set while installation.
 But apache2 won't be remove while uninstallation.
 Run it as root.
